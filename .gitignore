@@ -1,0 +1,22 @@
+#IntelliJ Files
+.idea/
+
+#3rd Party Dependencies
+node_modules/
+
+#Generated Files
+.awcache
+.tscache
+coverage/
+src/**/*.js
+*.jsx
+*.jsx.map
+src/**/*.js.map
+config/**/*.js
+config/**/*.js.map
+*.log
+build/
+
+#Temp
+*~
+*.swp
