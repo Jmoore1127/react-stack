@@ -9,7 +9,7 @@ import Dispatcher from 'redux-devtools-dispatch';
 export const DevTools = createDevTools(
     <DockMonitor toggleVisibilityKey='ctrl-h'
                  changePositionKey='ctrl-q'
-                 defaultIsVisible={false}>
+                 defaultIsVisible={true}>
             <MultipleMonitors>
                 <DiffMonitor theme='tomorrow'/>
                 <Inspector/>

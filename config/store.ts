@@ -1,19 +1,23 @@
+import * as _ from 'lodash';
 import {createStore, applyMiddleware, compose, Middleware, combineReducers} from 'redux';
 import {browserHistory} from "react-router";
 import {routerMiddleware, routerReducer} from 'react-router-redux';
 import {createLogicMiddleware} from 'redux-logic';
 import {DevTools} from "./redux-dev.component";
-import {Reducer} from "./reducer";
+import {Reducer} from "./reducer.interface";
+
+const reduxContext = require.context('../', true, /.*\.redux\.ts$/);
 
 const rootReducer = combineReducers(
-    getReducers(require.context('../', true, /.*\.reducer\.tsx$/))
+    getReducers(reduxContext)
 );
 
-const rootLogic = getLogic(require.context('../', true, /.*\.logic\.tsx/));
+const rootLogic = getLogic(reduxContext);
 
 export function configureStore(initialState?) {
     const store = createStore(
         combineReducers({
+            app:rootReducer,
             routing: routerReducer
         }),
         initialState,
@@ -34,20 +38,24 @@ function getMiddleware(): Middleware[] {
     return middleware;
 }
 
-function getReducers(reducerContext) {
-    return reducerContext.keys()
-        .reduce((reducers, reducerFile) => {
-            let reducer: Reducer = reducerContext(reducerFile).default;
-            return {
-                ...reducers,
-                [reducer.name]: reducer.reducer
-            }
+function getReducers(reduxContext) {
+    return reduxContext.keys()
+        .reduce((previous, reduxFile) => {
+            let reducers: Reducer[] = reduxContext(reduxFile).default.reducers;
+            let clean = reducers.map((reducer) => {
+                let ret = {};
+                if (reducer.name && reducer.reducer) {
+                    ret[reducer.name] = reducer.reducer;
+                }
+                return ret;
+            });
+            return _.merge({}, previous, ...clean);
         }, {});
 }
 
-function getLogic(logicContext) {
-    return logicContext.keys()
-        .map((logic) => {
-            return logicContext(logic).default;
-        });
+function getLogic(reduxContext) {
+    let logic = reduxContext.keys().map((reduxFile) => {
+        return reduxContext(reduxFile).default.logic;
+    });
+    return _.flatten(logic);
 }

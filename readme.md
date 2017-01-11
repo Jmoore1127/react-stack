@@ -56,8 +56,9 @@ This project shows a working configured example of the react tech-stack.
      
    * Folder names
    
-     * Folders names should be **lowercase** and **kabob-case** (e.g. really-long-folder-name-example)
-     * The root folder of a container component should end in **-container**
+     Folders names should be **lowercase** and **kabob-case** (e.g. really-long-folder-name-example)
+     
+     The root folder of a container component should end in **-container**
    
 * Files
   * File Names
