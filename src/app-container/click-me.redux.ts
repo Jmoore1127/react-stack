@@ -1,12 +1,14 @@
+import * as _ from 'lodash';
 import {Action} from '../../config/action.interface';
 import {ReduxRegistration} from "../../config/redux-registration.interface";
 import {handleActions} from "redux-actions";
 
-export const CLICK_BUTTON = "CLICK_BUTTON";
-export type ICLICK_BUTTON = {timestamp:Date};
-export function createButtonClickAction():Action<ICLICK_BUTTON>{
+export const ClickButtonAction = "CLICK_BUTTON";
+export interface IClickButton {timestamp:Date}
+const stateArea:string = 'clicks';
+export function createButtonClickAction():Action<IClickButton>{
     return {
-        type: CLICK_BUTTON,
+        type: ClickButtonAction,
         payload:{
             timestamp: new Date()
         }
@@ -17,8 +19,8 @@ const defaultState = {
 };
 
 const buttonClickReducer = handleActions({
-    [CLICK_BUTTON]: (state, action: Action<ICLICK_BUTTON>) => {
-        return Object.assign({}, state,{
+    [ClickButtonAction]: (state, action: Action<IClickButton>) => {
+        return _.merge({}, state,{
             buttonClicks:[
                 ...state.buttonClicks,
                 {
@@ -30,6 +32,6 @@ const buttonClickReducer = handleActions({
 },defaultState);
 
 export default <ReduxRegistration>{
-    reducers:[{name:'clicks',reducer:buttonClickReducer}],
+    reducers:[{name:stateArea,reducer:buttonClickReducer}],
     logic: []
 }

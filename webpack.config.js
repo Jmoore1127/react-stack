@@ -4,7 +4,7 @@ const {CheckerPlugin} = require('awesome-typescript-loader');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    devtool: 'eval',
+    devtool: 'source-map',
     entry: [
         'webpack-dev-server/client?http://localhost:3000',
         'webpack/hot/only-dev-server',
@@ -45,7 +45,7 @@ module.exports = {
     plugins: [
         new CheckerPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.optimize.UglifyJsPlugin(),
+        // new webpack.optimize.UglifyJsPlugin(),
         new HTMLWebpackPlugin({
             template: './src/index.html'
         })
