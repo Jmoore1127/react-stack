@@ -12,9 +12,11 @@ This project shows a working configured example of the react tech-stack.
 * React-Router
 * React-Router-Redux
 * Redux-Devtools
-* Material-UI
+* Material-UI  (TODO)
 * Lodash
 * Webpack
+  - Code Splitting / Lazy Loading (TODO)
+  - Hot Reload (TODO)
 
 
 ##Conventions
