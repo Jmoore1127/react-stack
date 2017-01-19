@@ -1,25 +1,18 @@
-import * as _ from 'lodash';
-import {createStore, applyMiddleware, compose, Middleware, combineReducers} from 'redux';
+import {
+    applyMiddleware,
+    compose,
+    createStore,
+    Middleware,
+} from 'redux';
 import {browserHistory} from "react-router";
-import {routerMiddleware, routerReducer} from 'react-router-redux';
 import {createLogicMiddleware} from 'redux-logic';
-import {DevTools} from "./redux-dev.component";
-import {Reducer} from "./reducer.interface";
+import {routerMiddleware} from 'react-router-redux';
 
-const reduxContext = require.context('../', true, /.*\.redux\.ts$/);
-
-const rootReducer = combineReducers(
-    getReducers(reduxContext)
-);
-
-const rootLogic = getLogic(reduxContext);
+import {DevTools, reducers, rootLogic} from "./";
 
 export function configureStore(initialState?) {
     const store = createStore(
-        combineReducers({
-            app: rootReducer,
-            routing: routerReducer
-        }),
+        reducers,
         initialState,
         compose(
             applyMiddleware(...getMiddleware()),
@@ -32,28 +25,8 @@ export function configureStore(initialState?) {
 function getMiddleware():Middleware[] {
     let middleware = [
         routerMiddleware(browserHistory),
-       // createLogicMiddleware(rootLogic, {})
+        // createLogicMiddleware(rootLogic, {})
     ];
 
     return middleware;
-}
-
-function getReducers(reduxContext) {
-    return _.chain(reduxContext.keys())
-        .map(reduxFile => reduxContext(reduxFile).default.reducers)
-        .flatten()
-        .filter(reducer => reducer.name && reducer.reducer)
-        .reduce(mergeReducerWithHash, {})
-        .value();
-}
-
-function mergeReducerWithHash(hash:Map<string,Reducer>, reducer:Reducer) {
-    return _.merge({}, hash, {[reducer.name]: reducer.reducer});
-}
-
-function getLogic(reduxContext) {
-    return _.chain(reduxContext.keys())
-        .map(reduxFile => reduxContext(reduxFile).default.logic)
-        .flatten()
-        .value();
 }
