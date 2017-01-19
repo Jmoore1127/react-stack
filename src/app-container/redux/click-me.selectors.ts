@@ -1,6 +1,7 @@
 import * as _ from 'lodash';
 import {createSelector} from 'reselect';
-import {IClickButton} from "./click-me.redux";
+import {IClickButton} from "./";
+
 export const buttonClicksSelector = (state):IClickButton[] => state.app.clicks.buttonClicks;
 export const makeButtonClicksCountSelector = ()=>{
     return createSelector(

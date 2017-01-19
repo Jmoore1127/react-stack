@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
-const {CheckerPlugin} = require('awesome-typescript-loader');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+var atLoader = require('awesome-typescript-loader');
+var HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devtool: 'source-map',
@@ -43,7 +43,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new CheckerPlugin(),
+        new atLoader.CheckerPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         // new webpack.optimize.UglifyJsPlugin(),
         new HTMLWebpackPlugin({

@@ -1,8 +1,12 @@
 import {bindActionCreators} from "redux";
 import {AppComponent} from "./app.component";
 import {connect} from "react-redux";
-import {createButtonClickAction} from "./click-me.redux";
-import {makeButtonClicksCountSelector,makeButtonClicksHistogramSelector} from "./click-me.selectors";
+
+import {
+    createButtonClick,
+    makeButtonClicksCountSelector,
+    makeButtonClicksHistogramSelector
+} from "./redux/index";
 
 interface StateProps {
     buttonClicks: number;
@@ -12,7 +16,6 @@ interface DispatchProps {
     sendButtonClick:()=>void;
 }
 
-type StateDemoProps = StateProps & DispatchProps;
 function mapStateToProps(state) {
     return {
         buttonClicks: makeButtonClicksCountSelector()(state),
@@ -21,7 +24,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({sendButtonClick:createButtonClickAction},dispatch);
+    return bindActionCreators({sendButtonClick:createButtonClick},dispatch);
 }
 
 export const AppContainer = connect<StateProps,DispatchProps,any>(mapStateToProps, mapDispatchToProps)(AppComponent);

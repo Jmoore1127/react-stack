@@ -17,7 +17,7 @@ const rootLogic = getLogic(reduxContext);
 export function configureStore(initialState?) {
     const store = createStore(
         combineReducers({
-            app:rootReducer,
+            app: rootReducer,
             routing: routerReducer
         }),
         initialState,
@@ -29,33 +29,31 @@ export function configureStore(initialState?) {
     return store;
 }
 
-function getMiddleware(): Middleware[] {
+function getMiddleware():Middleware[] {
     let middleware = [
         routerMiddleware(browserHistory),
-        createLogicMiddleware(rootLogic, {})
+       // createLogicMiddleware(rootLogic, {})
     ];
 
     return middleware;
 }
 
 function getReducers(reduxContext) {
-    return reduxContext.keys()
-        .reduce((previous, reduxFile) => {
-            let reducers: Reducer[] = reduxContext(reduxFile).default.reducers;
-            let clean = reducers.map((reducer) => {
-                let ret = {};
-                if (reducer.name && reducer.reducer) {
-                    ret[reducer.name] = reducer.reducer;
-                }
-                return ret;
-            });
-            return _.merge({}, previous, ...clean);
-        }, {});
+    return _.chain(reduxContext.keys())
+        .map(reduxFile => reduxContext(reduxFile).default.reducers)
+        .flatten()
+        .filter(reducer => reducer.name && reducer.reducer)
+        .reduce(mergeReducerWithHash, {})
+        .value();
+}
+
+function mergeReducerWithHash(hash:Map<string,Reducer>, reducer:Reducer) {
+    return _.merge({}, hash, {[reducer.name]: reducer.reducer});
 }
 
 function getLogic(reduxContext) {
-    let logic = reduxContext.keys().map((reduxFile) => {
-        return reduxContext(reduxFile).default.logic;
-    });
-    return _.flatten(logic);
+    return _.chain(reduxContext.keys())
+        .map(reduxFile => reduxContext(reduxFile).default.logic)
+        .flatten()
+        .value();
 }
