@@ -10,7 +10,7 @@ import {routerMiddleware} from 'react-router-redux';
 
 import {DevTools, reducers, rootLogic} from "./";
 
-export function configureStore(initialState?) {
+function configureStore(initialState?) {
     const store = createStore(
         reducers,
         initialState,
@@ -25,8 +25,10 @@ export function configureStore(initialState?) {
 function getMiddleware():Middleware[] {
     let middleware = [
         routerMiddleware(browserHistory),
-        // createLogicMiddleware(rootLogic, {})
+        createLogicMiddleware(rootLogic, {})
     ];
 
     return middleware;
 }
+
+export const store = configureStore();

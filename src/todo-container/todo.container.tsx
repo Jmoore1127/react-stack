@@ -1,13 +1,14 @@
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
+
+import {createFetchTodoListAction} from './redux/fetch-todo-lists.redux';
 import {ITodoList} from "./redux/todo-list.interface";
-import {todoListSelector,makeTodoListCountSelector} from "./redux/todo.selectors";
+import {makeTodoListCountSelector, todoListSelector} from "./redux/todo.selectors";
 import {TodoPage} from "./todos/todo-page.component";
 
-
 interface StateProps {
-  todoLists:ITodoList[];
-  listCount:number;
+  todoLists: ITodoList[];
+  listCount: number;
 }
 interface DispatchProps {
 }
@@ -20,8 +21,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {};
-  //return bindActionCreators({sendButtonClick:createButtonClick},dispatch);
+  return bindActionCreators({fetchTodos: createFetchTodoListAction}, dispatch);
 }
 
 export const TodoContainer = connect<StateProps,DispatchProps,any>(mapStateToProps, mapDispatchToProps)(TodoPage);
