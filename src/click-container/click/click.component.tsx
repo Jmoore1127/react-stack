@@ -1,7 +1,8 @@
 import * as React from 'react';
 import * as _ from 'lodash';
-const styles = require('./click.component.scss');
-const otherStyles = require('./other-styles.scss');
+
+const styles:any = require('./click.component.scss');
+const otherStyles:any = require('./other-styles.scss');
 
 export const ClickComponent: React.StatelessComponent<{buttonClicks: number, buttonClicksHistogram: {[key: number]: number}, sendButtonClick: () => void}> =
     ({buttonClicks, buttonClicksHistogram, sendButtonClick}) => {

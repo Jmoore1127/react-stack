@@ -7,7 +7,6 @@ import {
     IAction,
     IReduxRegistration
 } from "../../../config";
-import {IClickButton} from "./";
 
 const FetchTodoListAction = "FETCH_TODO_LISTS";
 const FetchTodoListSuccessAction = "FETCH_TODO_LISTS_SUCCESS";
@@ -23,24 +22,20 @@ const defaultState = {
 };
 
 const fetchTodoListSuccessReducer = handleActions({
-  [ClickButtonAction]: (state, action:IAction<IClickButton>) => {
+  [FetchTodoListSuccessAction]: (state, action:IAction<any>) => {
     return _.merge({}, state, {
-      buttonClicks: [
-        ...state.buttonClicks,
-        {
-          timestamp: action.payload.timestamp
-        }
-      ]
+      todoLists: _.merge([], ...state.todoLists, action.payload.todoLists)
     });
   }
 }, defaultState);
 
-export {ClickButtonAction, createButtonClick};
+export {FetchTodoListAction, FetchTodoListErrorAction, FetchTodoListSuccessAction};
+export {createFetchTodoListAction, createFetchTodoListErrorAction, createFetchTodoListSuccessAction}
 export default <IReduxRegistration>{
   reducers: [
     {
       name: stateArea,
-      reducer: buttonClickReducer
+      reducer: fetchTodoListSuccessReducer
     }],
   logic: null
 }
