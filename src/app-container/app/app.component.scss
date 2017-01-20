@@ -1,0 +1,31 @@
+.siteNav {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #e2e2e2;
+  padding: 1rem 0.5rem;
+  ul {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.navItem {
+  display: inline-block;
+  a {
+    text-decoration: none;
+    font-size: larger;
+    color: #202020;
+    font-family: monospace;
+    padding: 1rem;
+  }
+}
+
+.navItemActive {
+  border-bottom: 2px solid #202020;
+}
+
+.appContent {
+  margin: 1rem;
+}
