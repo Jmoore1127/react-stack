@@ -1,2 +1,2 @@
-export {TodoItem} from './todo-item.schema';
-export {TodoList} from './todo-list.schema';
+export {TodoItemSchema} from './todo-item.schema';
+export {TodoListSchema} from './todo-list.schema';

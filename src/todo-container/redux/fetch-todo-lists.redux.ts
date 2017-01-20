@@ -1,4 +1,5 @@
 import * as _ from 'lodash';
+import {normalize} from 'normalizr';
 import {createLogic} from 'redux-logic';
 import {
   handleActions,
@@ -8,6 +9,8 @@ import {
   IAction,
   IReduxRegistration
 } from "../../../config";
+import {ITodoList} from './todo-list.interface';
+import {TodoListSchema} from '../../../config/schema';
 
 const FetchTodoListAction = "FETCH_TODO_LISTS";
 const FetchTodoListSuccessAction = "FETCH_TODO_LISTS_SUCCESS";
@@ -19,14 +22,16 @@ const createFetchTodoListSuccessAction = createAction(FetchTodoListSuccessAction
 const createFetchTodoListErrorAction = createAction(FetchTodoListErrorAction, () => ({timestamp: new Date()}));
 
 const defaultState = {
-  todoLists: []
+  allLists: [],
+  todoLists: {},
+  todoItems: {}
 };
 
 const fetchTodoListReducer = handleActions({
-  [FetchTodoListSuccessAction]: (state, action: IAction<any>) => {
-    return _.merge({}, state, {
-      todoLists: action.payload
-    });
+  [FetchTodoListSuccessAction]: (state, action: IAction<ITodoList[]>) => {
+    let normalized = normalize(action.payload,[TodoListSchema]);
+    let updated = {...normalized.entities, allLists:normalized.result};
+    return _.merge({}, state, updated );
   }
 }, defaultState);
 

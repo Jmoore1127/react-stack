@@ -1,6 +1,6 @@
 import {schema} from 'normalizr';
-import {TodoItem} from "./todo-item.schema";
+import {TodoItemSchema} from "./todo-item.schema";
 
-export const TodoList = new schema.Entity('todoLists',{
-  items:[TodoItem]
+export const TodoListSchema = new schema.Entity('todoLists',{
+  items:[TodoItemSchema]
 });
