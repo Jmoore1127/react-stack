@@ -1,18 +1,18 @@
 import * as React from 'react';
 import * as _ from 'lodash';
-import {DevTools} from "../../config/dev-tools.component";
+const styles = require('./click.component.scss');
+const otherStyles = require('./other-styles.scss');
 
-export const AppComponent: React.StatelessComponent<{buttonClicks: number, buttonClicksHistogram: {[key: number]: number}, sendButtonClick: () => void}> =
+export const ClickComponent: React.StatelessComponent<{buttonClicks: number, buttonClicksHistogram: {[key: number]: number}, sendButtonClick: () => void}> =
     ({buttonClicks, buttonClicksHistogram, sendButtonClick}) => {
 
       return (
           <section>
-            <DevTools></DevTools>
             <h1>Welcome to the clicking game!</h1>
-            <button onClick={sendButtonClick}>Click me</button>
-            <h2>Button Clicks: {buttonClicks}</h2>
+            <button onClick={sendButtonClick} className={otherStyles.test}>Click me</button>
+            <h2 className={otherStyles.test}>Button Clicks: {buttonClicks}</h2>
             <h2>Histogram (clicks per second)</h2>
-            <h3>
+            <h3 className={styles.test}>
               {
                 _.chain(buttonClicksHistogram)
                     .keysIn()

@@ -14,7 +14,7 @@ This project shows a working configured example of the react tech-stack.
 * Redux-Devtools
 * Normalizr (TODO)
 * Material-UI  (TODO)
-* CSS-Modules (TODO)
+* CSS-Modules
 * Lodash
 * Webpack
   - Code Splitting / Lazy Loading (TODO)
