@@ -1,8 +1,24 @@
 #React Tech Stack Template
 This project shows a working configured example of the react tech-stack.
 
+##TODO
+* Material-UI Wrappers
+* Add UI for Todo Lists
+* Webpack Code Splitting
+    * Lazy load components on routes
+    * Lazy load reducers and logic and add to store
+* Hot Reload
+* Link Examples in Repo of Technologies
+* Update Conventions
+* Write Out Style Guidelines and Coding Standards
+* Remove Font Link from Index.html
+* Remove unecessary index.ts(x) files
+* Add Styles (Make it prettier)
+* Create Generators
+* Create visualization for click game (d3?)
+* Organize Imports, Reformat Code
+
 ##Included Technologies
-//TODO put links to examples in repo
 * React
 * Typescript (ES6 with Babel)
 * Redux
@@ -12,13 +28,13 @@ This project shows a working configured example of the react tech-stack.
 * React-Router
 * React-Router-Redux
 * Redux-Devtools
-* Normalizr (TODO)
-* Material-UI  (TODO)
+* Normalizr
+* Material-UI
 * CSS-Modules
 * Lodash
 * Webpack
-  - Code Splitting / Lazy Loading (TODO)
-  - Hot Reload (TODO)
+  - Code Splitting / Lazy Loading
+  - Hot Reload
 
 
 ##Conventions
