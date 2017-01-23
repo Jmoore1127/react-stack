@@ -1,11 +1,11 @@
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
+import {createButtonClick} from './redux/click-me.redux';
 import {
-    createButtonClick,
     makeButtonClicksCountSelector,
     makeButtonClicksHistogramSelector
-} from "./redux";
+} from "./redux/click-me.selectors";
 import {ClickComponent} from "./click/click.component";
 
 interface StateProps {

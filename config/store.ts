@@ -7,8 +7,9 @@ import {
 import {browserHistory} from "react-router";
 import {createLogicMiddleware} from 'redux-logic';
 import {routerMiddleware} from 'react-router-redux';
-
-import {DevTools, reducers, rootLogic} from "./";
+import {reducers} from './reducers';
+import {rootLogic} from './logic';
+import {DevTools} from './dev-tools.component';
 
 function configureStore(initialState?) {
     const store = createStore(

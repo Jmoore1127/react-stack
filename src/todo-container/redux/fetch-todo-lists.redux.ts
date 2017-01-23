@@ -8,7 +8,7 @@ import {
 import {
   IAction,
   IReduxRegistration
-} from "../../../config";
+} from "../../../config/interfaces";
 import {ITodoList} from './todo-list.interface';
 import {TodoListSchema} from '../../../config/schema';
 

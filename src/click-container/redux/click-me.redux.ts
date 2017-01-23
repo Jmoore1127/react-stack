@@ -6,8 +6,8 @@ import {
 import {
     IAction,
     IReduxRegistration
-} from "../../../config";
-import {IClickButton} from "./";
+} from "../../../config/interfaces";
+import {IClickButton} from "./click-button.interface";
 
 const ClickButtonAction = "CLICK_BUTTON";
 const stateArea:string = 'clicks';

@@ -3,7 +3,7 @@ import {combineReducers} from 'redux';
 import {createLogicMiddleware} from 'redux-logic';
 import {routerReducer} from 'react-router-redux';
 
-import {IReducer} from "./";
+import {IReducer} from "./interfaces";
 
 const reduxContext = require.context('../', true, /.*\.redux\.ts$/);
 

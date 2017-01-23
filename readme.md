@@ -2,21 +2,19 @@
 This project shows a working configured example of the react tech-stack.
 
 ##TODO
-* Material-UI Wrappers
-* Add UI for Todo Lists
-* Webpack Code Splitting
-    * Lazy load components on routes
-    * Lazy load reducers and logic and add to store
-* Hot Reload
-* Link Examples in Repo of Technologies
-* Update Conventions
-* Write Out Style Guidelines and Coding Standards
-* Remove Font Link from Index.html
-* Remove unecessary index.ts(x) files
-* Add Styles (Make it prettier)
-* Create Generators
-* Create visualization for click game (d3?)
-* Organize Imports, Reformat Code
+* [ ] Material-UI Wrappers
+* [ ] Add UI for Todo Lists
+* [ ]  Webpack Code Splitting
+    * [ ]  Lazy load components on routes
+    * [ ]  Lazy load reducers and logic and add to store
+* [x]  Hot Reload
+* [ ]  Link Examples in Repo of Technologies
+* [ ]  Update Conventions
+* [ ]  Write Out Style Guidelines and Coding Standards
+* [ ]  Add Styles (Make it prettier)
+* [ ]  Create Generators
+* [ ]  Create visualization for click game (d3?)
+* [ ]  Organize Imports, Reformat Code
 
 ##Included Technologies
 * React
