@@ -9,7 +9,7 @@ export const AppComponent: React.StatelessComponent<{children: any}> =
   ({children}) => {
     return (
       <MuiThemeProvider>
-        <section>
+        <section className={styles.appWrapper}>
           <AppBar className={styles.siteNav} iconStyleLeft={{display:'none'}}
                   title={
                      <ul>

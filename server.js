@@ -7,9 +7,9 @@ new WebpackDevServer(webpack(config), {
     compress:true,
     stats:{colors:true},
     contentBase:'/build',
-    watchOptions:{
-        aggregateTimeout:1000,
-        poll:1000
+    watchOptions: {
+        aggregateTimeout:500,
+        poll: 1000
     },
     publicPath: config.output.publicPath,
     hot: true,

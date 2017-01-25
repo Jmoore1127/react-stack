@@ -13,12 +13,12 @@ export const rootRoute = {
             childRoutes: [
 
                 {
-                    path     : '/click',
+                    path     : 'click',
                     component: ClickContainer
                 },
                 {
-                    path     : '/todo',
-                    component: TodoContainer
+                    path     : 'todo(/:id)',
+                    component: TodoContainer,
                 }
             ]
         }

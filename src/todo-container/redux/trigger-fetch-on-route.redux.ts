@@ -6,7 +6,7 @@ const routerEvent = "@@router/LOCATION_CHANGE";
 const triggerTodoLoadOnRouteChangeLogic = createLogic({
   type:routerEvent,
   validate({getState,action},allow,reject){
-    if(action.payload.pathname == '/todo'){
+    if(action.payload.pathname.startsWith('/todo')){
       allow(action);
     }else{
       reject(action);

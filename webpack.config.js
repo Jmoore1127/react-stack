@@ -12,6 +12,7 @@ module.exports = {
         './src/index.tsx'
     ],
     output: {
+        publicPath: '/',
         filename: 'app.js',
         path: path.resolve('build')
     },

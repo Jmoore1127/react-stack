@@ -3,20 +3,22 @@ import {connect} from "react-redux";
 
 import {createFetchTodoListAction} from './redux/fetch-todo-lists.redux';
 import {ITodoList} from "./redux/todo-list.interface";
-import {makeTodoListCountSelector, todoListSelector} from "./redux/todo.selectors";
+import {makeTodoListCountSelector, todoListSelector, todoListsSelector} from "./redux/todo.selectors";
 import {TodoPage} from "./todos/todo-page.component";
 
 interface StateProps {
   todoLists: ITodoList[];
   listCount: number;
+  selectedTodoList:ITodoList;
 }
 interface DispatchProps {
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state,ownProps) {
   return {
-    todoLists: todoListSelector(state),
-    listCount: makeTodoListCountSelector()(state)
+    todoLists: todoListsSelector(state),
+    listCount: makeTodoListCountSelector()(state),
+    selectedTodoList: todoListSelector(state,ownProps.params.id)
   };
 }
 

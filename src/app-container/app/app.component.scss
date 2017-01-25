@@ -20,6 +20,17 @@
   }
 }
 
-.appContent {
-  margin: 1rem;
+.appWrapper {
+  height:100%;
+  display: flex;
+  flex-direction: column;
 }
+
+.appContent {
+  margin: 1rem 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+

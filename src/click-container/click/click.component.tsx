@@ -8,7 +8,7 @@ export const ClickComponent: React.StatelessComponent<{buttonClicks: number, but
     ({buttonClicks, buttonClicksHistogram, sendButtonClick}) => {
 
       return (
-          <section>
+          <section className={styles.clickGameWrapper}>
             <h1>Welcome to the clicking game!</h1>
             <button onClick={sendButtonClick} className={otherStyles.test}>Click me</button>
             <h2 className={otherStyles.test}>Button Clicks: {buttonClicks}</h2>
