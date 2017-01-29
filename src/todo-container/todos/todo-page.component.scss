@@ -1,0 +1,21 @@
+.todoPageWrapper {
+  flex: 1 1 auto;
+  flex-direction: column;
+  display: flex;
+}
+.todoWrapper {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+.todoDetail {
+  padding: 0 2rem;
+  flex: 1 1 auto;
+}
+
+.pageTitle {
+  padding: 0 1rem;
+}

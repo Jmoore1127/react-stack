@@ -1,0 +1,17 @@
+#IntelliJ Files
+.idea/
+
+#3rd Party Dependencies
+node_modules/
+
+#Generated Files
+.awcache
+.tscache
+coverage/
+
+*.log
+build/
+
+#Temp
+*~
+*.swp

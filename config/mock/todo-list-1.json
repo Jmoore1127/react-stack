@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "name":"Short list",
+  "items": [
+    {
+      "id": 1,
+      "text": "Get milk"
+    },
+    {
+      "id": 2,
+      "text":"Add chocolate to milk"
+    },
+    {
+      "id": 3,
+      "text":"Drink chocolate milk"
+    }
+  ]
+}
