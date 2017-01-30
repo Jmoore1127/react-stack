@@ -9,15 +9,13 @@ import {createLogicMiddleware} from 'redux-logic';
 import {routerMiddleware} from 'react-router-redux';
 import {reducers} from './reducers';
 import {rootLogic} from './logic';
-import {DevTools} from './dev-tools.component';
 
 function configureStore(initialState?) {
     const store = createStore(
         reducers,
         initialState,
         compose(
-            applyMiddleware(...getMiddleware()),
-            DevTools.instrument()
+            applyMiddleware(...getMiddleware())
         ));
 
     return store;

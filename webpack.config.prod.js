@@ -5,11 +5,7 @@ var HTMLWebpackPlugin = require('html-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-    devtool: 'source-map',
     entry: [
-        'react-hot-loader/patch',
-        'webpack-dev-server/client?http://localhost:3000',
-        'webpack/hot/only-dev-server',
         './src/index.tsx'
     ],
     output: {
@@ -67,11 +63,9 @@ module.exports = {
             openAnalyzer:true
         }),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('development'),
+            'process.env.NODE_ENV': JSON.stringify('production'),
         }),
         new atLoader.CheckerPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
             sourceMap:true,

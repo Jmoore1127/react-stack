@@ -2,7 +2,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import * as React from 'react';
 import {Link} from "react-router";
-import {DevTools} from "../../../config/dev-tools.component";
 const styles: any = require('./app.component.scss');
 
 export const AppComponent: React.StatelessComponent<{children: any}> =
@@ -20,7 +19,6 @@ export const AppComponent: React.StatelessComponent<{children: any}> =
           <section className={styles.appContent}>
             {children}
           </section>
-          <DevTools></DevTools>
         </section>
       </MuiThemeProvider>
     );
