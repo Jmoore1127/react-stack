@@ -1,6 +1,5 @@
 var webpack = require('webpack');
 var path = require('path');
-var atLoader = require('awesome-typescript-loader');
 var HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -30,17 +29,6 @@ module.exports = {
               presets: ['es2015', 'react']
             }
           },
-          {
-                test: /\.tsx?$/,
-                use: [
-                    {
-                        loader: 'awesome-typescript-loader',
-                        options: {
-                            useBabel: true,
-                            useCache: true
-                        }
-                    }]
-            },
             {
                 test: /\.html/,
                 use: [{
@@ -80,7 +68,6 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development'),
         }),
-        new atLoader.CheckerPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
         // new webpack.optimize.UglifyJsPlugin(),

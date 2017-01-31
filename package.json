@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/jmoore1127/react-stack#readme",
   "dependencies": {
-    "awesome-typescript-loader": "^3.0.0-beta.18",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
     "babel-plugin-react-transform": "^2.0.2",
@@ -62,19 +61,6 @@
     "webpack-dev-server": "^2.2.0-rc.0"
   },
   "devDependencies": {
-    "@types/react": "0.0.0",
-    "@types/react-dom": "^0.14.20",
-    "@types/react-redux": "^4.4.35",
-    "@types/react-router": "^2.0.42",
-    "@types/react-router-redux": "^4.0.36",
-    "@types/redux-actions": "^1.2.2",
-    "@types/redux-devtools": "^3.0.36",
-    "@types/redux-devtools-dock-monitor": "^1.1.29",
-    "@types/reselect": "^2.0.27",
-    "@types/rx": "^4.1.1",
-    "@types/systemjs": "^0.19.33",
-    "@types/webpack": "^2.1.0",
-    "@types/webpack-env": "^1.13.0",
     "html-webpack-plugin": "^2.26.0",
     "redux-devtools": "^3.3.1",
     "redux-devtools-diff-monitor": "^5.0.5",
