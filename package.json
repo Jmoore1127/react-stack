@@ -79,6 +79,7 @@
     "redux-devtools-dispatch": "^2.2.0",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-inspector": "^0.9.4",
-    "redux-devtools-multiple-monitors": "^1.0.1"
+    "redux-devtools-multiple-monitors": "^1.0.1",
+    "webpack-bundle-analyzer": "^2.2.1"
   }
 }
