@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test.config.js src/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -73,12 +73,19 @@
     "@types/systemjs": "^0.19.33",
     "@types/webpack": "^2.1.0",
     "@types/webpack-env": "^1.13.0",
+    "chai": "^3.5.0",
+    "enzyme": "^2.7.1",
     "html-webpack-plugin": "^2.26.0",
+    "jsdom": "^9.9.1",
+    "mocha": "^3.2.0",
+    "mocha-sinon": "^1.1.6",
+    "react-addons-test-utils": "^15.4.2",
     "redux-devtools": "^3.3.1",
     "redux-devtools-diff-monitor": "^5.0.5",
     "redux-devtools-dispatch": "^2.2.0",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-inspector": "^0.9.4",
-    "redux-devtools-multiple-monitors": "^1.0.1"
+    "redux-devtools-multiple-monitors": "^1.0.1",
+    "sinon-chai": "^2.8.0"
   }
 }
