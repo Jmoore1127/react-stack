@@ -86,6 +86,7 @@
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-inspector": "^0.9.4",
     "redux-devtools-multiple-monitors": "^1.0.1",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "webpack-bundle-analyzer": "^2.2.1"
   }
 }
